@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<ruleset name="Blackwell">
+    <description>robert blackwell's whiteacorn rule set for phpcs.</description>
+    <arg name="tab-width" value="4"/>
+    <arg name="report" value="full"/>
+    <arg name="colors"/><arg value="sp"/>
+    <rule ref="PSR1">
+        <exclude name="PSR1.Classes.ClassDecleration.MissingNamespace"/>
+        <exclude name="Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase"/>
+    </rule>rule>
+    <rule ref="PSR2">
+        <exclude name="Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase"/>
+        <exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
+        <exclude name="Generic.Files.LineLength"/>
+        <exclude name="Generic.ControlStructures.InlineControlStructure"/>
+        <exclude name="PSR1.Files.SideEffects.FoundWithSymbols"/>
+
+        <!--exclude name="Generic.NamingConventions.CamelCapsFunctionName" /-->
+        <exclude name="PSR1.Classes.ClassDecleration.MissingNamespace"/>
+        <exclude name="PSR1.Methods.CamelCapsMethodName"/>
+    </rule>
+    <rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
+    <rule ref="Generic.WhiteSpace.ScopeIndent">
+        <properties>
+            <property name="indent" value="4"/>
+            <property name="tabIndent" value="true"/>
+        </properties>
+    </rule>
+
+</ruleset>

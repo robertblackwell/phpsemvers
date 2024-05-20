@@ -1,0 +1,43 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/robert/MyPhpPackages/wactl'
+~/.composer/vendor/bin/phpcs -s --standard=Blackwell \
+	src/main.php \
+	src/WhiteacornControl/SingleCommandApplication.php \
+	src/WhiteacornControl/Version.php \
+	src/WhiteacornControl/Commands/AssetConfigObject.php \
+	src/WhiteacornControl/Commands/ConfigObject.php \
+	src/WhiteacornControl/Commands/Remote.php \
+	src/WhiteacornControl/Commands/Synchronizer.php \
+	src/WhiteacornControl/Commands/UpdateBaseCommand.php \
+	src/WhiteacornControl/Commands/UpdateHtaccessCommand.php \
+	src/WhiteacornControl/Commands/UpdatePHPCommand.php \
+	src/WhiteacornControl/Commands/VersionCommand.php \
+	src/WhiteacornControl/Commands/UpdateBaseCommand.php \
+	src/WhiteacornControl/Commands/UpdateBaseCommand.php \
+	src/WhiteacornControl/Commands/UpdateBaseCommand.php \
+	src/WhiteacornControl/Commands/Garmin/BaseCommand.php \
+	src/WhiteacornControl/Commands/Garmin/DailyCommand.php \
+	src/WhiteacornControl/Commands/Ird/Deport/AlbumCommand.php \
+	src/WhiteacornControl/Commands/Ird/Deport/BannerCommand.php \
+	src/WhiteacornControl/Commands/Ird/Deport/BaseCommand.php \
+	src/WhiteacornControl/Commands/Ird/Deport/EditorialCommand.php \
+	src/WhiteacornControl/Commands/Ird/Deport/ItemCommand.php \
+	src/WhiteacornControl/Commands/Ird/Import/AlbumCommand.php \
+	src/WhiteacornControl/Commands/Ird/Import/BannerCommand.php \
+	src/WhiteacornControl/Commands/Ird/Import/BaseCommand.php \
+	src/WhiteacornControl/Commands/Ird/Import/EditorialCommand.php \
+	src/WhiteacornControl/Commands/Ird/Import/ItemCommand.php \
+	src/WhiteacornControl/Commands/Ird/Refresh/AlbumCommand.php \
+	src/WhiteacornControl/Commands/Ird/Refresh/BannerCommand.php \
+	src/WhiteacornControl/Commands/Ird/Refresh/BaseCommand.php \
+	src/WhiteacornControl/Commands/Ird/Refresh/EditorialCommand.php \
+	src/WhiteacornControl/Commands/Ird/Refresh/ItemCommand.php \
+	src/WhiteacornControl/Commands/Push/AlbumCommand.php \
+	src/WhiteacornControl/Commands/Push/BannerCommand.php \
+	src/WhiteacornControl/Commands/Push/BaseCommand.php \
+	src/WhiteacornControl/Commands/Push/EditorialCommand.php \
+	src/WhiteacornControl/Commands/Push/ItemCommand.php \
+	src/WhiteacornControl/Commands/Push/NinaRobCommand.php \
+	src/WhiteacornControl/Commands/Push/SomethingCommand.php 
+make: Leaving directory '/home/robert/MyPhpPackages/wactl'
+ 
