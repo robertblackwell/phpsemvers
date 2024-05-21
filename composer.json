@@ -1,10 +1,10 @@
 {
-	"name":"robertblackwell/php_version",
+	"name":"robertblackwell/php_semvers",
 	"description": "bumping semantic version numbers for php projects",
 	"keywords": ["semvers"],
 	"type": "library",
 	"bin" : ["bin/php_version"],
-	"homepage": "https://github.com/robertblackwell/wacontrol",
+	"homepage": "https://github.com/robertblackwell/php_semvers",
 	"license": "MIT",
 	"authors": [
 		{
@@ -15,10 +15,6 @@
 
 	"minimum-stability":"stable",
 	"repositories": [
-		{"type": "vcs","url": "git@github.com:robertblackwell/database-package"},
-		{"type": "git","url": "git@github.com:robertblackwell/waconvert"},
-		{"type": "vcs","url": "git@github.com:robertblackwell/litetest"},
-		{"type": "vcs","url": "git@github.com:robertblackwell/wactl"}
 	],
 
 	"require":{
