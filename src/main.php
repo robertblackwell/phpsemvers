@@ -36,10 +36,14 @@ if (strlen($pharPath) == 0) {
 	require_once($pharPath."/vendor/autoload.php");
 	// require dirname(dirname(__FILE__))."/vendor/autoload.php";
 }
-
+function get_version()
+{
+    require dirname(__FILE__)."/Version.php";
+    return $cfg;
+}
 use Symfony\Component\Console\Application;
 
-$application = new Application("Whiteacorn Control", "v0.0.1");
+$application = new Application("php_semvers", get_version());
 $application->add(new Commands\VersionBump());
 $application->add(new Commands\VersionInit());
 

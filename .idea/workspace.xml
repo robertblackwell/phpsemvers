@@ -36,7 +36,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpServers">
     <servers>
       <server host="test.whiteacorn" id="78d24dbc-7693-43e0-96e3-2c6d7ea55ba8" name="test.whiteacorn" use_path_mappings="true">
@@ -281,7 +280,7 @@
       <workItem from="1714108414271" duration="25901000" />
       <workItem from="1714375378027" duration="25493000" />
       <workItem from="1716155884654" duration="14424000" />
-      <workItem from="1716245900073" duration="3395000" />
+      <workItem from="1716245900073" duration="6188000" />
     </task>
     <servers />
   </component>
@@ -602,6 +601,21 @@
           <url>file://$PROJECT_DIR$/src/Commands/VersionBump.php</url>
           <line>61</line>
           <option name="timeStamp" value="177" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Tools/SemVersUtils.php</url>
+          <line>15</line>
+          <option name="timeStamp" value="180" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Commands/VersionBump.php</url>
+          <line>86</line>
+          <option name="timeStamp" value="181" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/main.php</url>
+          <line>41</line>
+          <option name="timeStamp" value="182" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

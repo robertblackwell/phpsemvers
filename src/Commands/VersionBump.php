@@ -69,12 +69,12 @@ EOD;
         }
         $bumpTypeString = $input->getArgument("bump");
         $bumpType = SemVersBumpEnum::tryFrom($bumpTypeString);
-        if(!$bumpType) {
-            throw new \Exception("{$bumpTypeString} is an invalid bump operation use one of 'major|minor|patch'");
-        }
         $git = new GitUtils($cwd);
         $branch = $git->getActiveBranch();
         $semvers = SemVersUtils::semversFromGitTag();
+        if(is_null($semvers)) {
+            throw new \Exception("could not make semvers from tag - probably <info>php_semvers</info> not initialized for this repo");
+        }
         $bumpedSemVers = $semvers->bump($bumpType);
         $hash = $git->getCommitHashForBranch($branch);
         if($dryrun) {
@@ -84,8 +84,8 @@ EOD;
             SemVersUtils::createTagFromSemVers($bumpedSemVers);
             SemVersUtils::pushSemversTag("origin", $bumpedSemVers);
             if($save) {
-                $versionFile = Path::join($cwd, $this->whiteacornConfig->version_file_relpath);
-                SemVersUtils::updateVersionFile($versionFile);
+                $versionFile = $context->version_file_path;
+                SemVersUtils::updateVersionFile($context->version_file_path);
                 $output->writeln("write {file_get_contents($versionFile)} to {$versionFile}");
             }
         }

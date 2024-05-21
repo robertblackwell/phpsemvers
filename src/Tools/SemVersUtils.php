@@ -14,6 +14,9 @@ Class SemVersUtils
 
         $tags = explode(PHP_EOL, shell_exec('git tag --sort -version:refname'));
         $tag_str = $tags[0];
+        if(strlen($tag_str) == 0) {
+            throw new \Exception("tag list is empty - probably repo not initialized for php_semvers");
+        }
         $tmp = str_replace('v', '', $tags[0]);
         $parts = explode('.', $tmp);
         $vs = array_map($toint, $parts);

@@ -4,7 +4,7 @@ use \Tools\Path;
 
 class Context
 {
-    public string $version_file_relpath;
+    public string $version_file_path;
     private static string $config_file_relpath = "php_semvers.json";
 
     private function __construct()
