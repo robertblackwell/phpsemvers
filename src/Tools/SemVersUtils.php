@@ -53,4 +53,13 @@ Class SemVersUtils
         $phpContent = "<?php\n \t \$cfg = '" . $r . "';\n?>\n";
         file_put_contents($versionFile, $phpContent);
     }
+    public static function createVersionFileContent()
+    {
+        $semVers = SemVersUtils::semversFromGitTag();
+        $branch = GitUtils::getActiveBranch();
+        $hash = GitUtils::getCommitHashForBranch($branch);
+        $r = "{$semVers}-{$branch}({$hash})";
+        $phpContent = "<?php\n \t \$cfg = '" . $r . "';\n?>\n";
+        return $phpContent;
+    }
 }
