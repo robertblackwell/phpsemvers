@@ -87,8 +87,6 @@ EOD;
             SemVersUtils::createTagFromSemVers($bumpedSemVers);
             SemVersUtils::pushSemversTag("origin", $bumpedSemVers);
             $versionFile = $context->version_file_path;
-            SemVersUtils::updateVersionFile($context->version_file_path);
-            $output->writeln("write {file_get_contents($versionFile)} to {$versionFile}");
         }
 		return 0;
 	}

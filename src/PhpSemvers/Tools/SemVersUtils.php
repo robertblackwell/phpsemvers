@@ -41,15 +41,14 @@ Class SemVersUtils
     /**
      * @throws \Exception
      */
-    public static function updateVersionFile(string $versionFile): void
+    public static function updateVersionFile(string $versionFile, SemVers $new_version): void
     {
         if (!is_file($versionFile)) {
             throw new \Exception("version file {$versionFile} does not exists");
         }
-        $semVers = SemVersUtils::semversFromGitTag();
         $branch = GitUtils::getActiveBranch();
-        $hash = GitUtils::getCommitHashForBranch($branch);
-        $r = "{$semVers}-{$branch}({$hash})";
+//        $hash = GitUtils::getCommitHashForBranch($branch);
+        $r = "{$new_version}";
         $phpContent = "<?php\n \t \$cfg = '" . $r . "';\n?>\n";
         file_put_contents($versionFile, $phpContent);
     }
