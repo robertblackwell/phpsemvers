@@ -1,7 +1,7 @@
 <?php
 namespace Tools;
 use Symfony\Component\Console\Output\OutputInterface;
-class Deployer
+class XDeployer
 {
     public static function deployOneDir(OutputInterface $output, ServerBase $server, string $dirName, string $localParentDirPath, string $remoteParentDirPath, bool $dryrun): void
     {

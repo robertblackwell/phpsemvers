@@ -23,7 +23,7 @@ function pexec(string $cmd): bool
 /**
  * A config object for pushing whiteacorn content from the local to the remote server using rsync
  */
-class Rsync
+class XRsync
 {
 	public function __construct()
 	{
