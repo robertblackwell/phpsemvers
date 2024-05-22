@@ -27,7 +27,14 @@ class GitUtils {
         $x = exec("git commit -a -m\"{$msg}\"", $outputText, $retVal);
         $len = strlen(implode($outputText));
         return ($len == 0);
-
+    }
+    public static function gitPush(string $remote = "origin", string $branch="master")
+    {
+        $outputText  = [];
+        $retVal = 0;
+        $x = exec("git push {$remote} {$branch}", $outputText, $retVal);
+        $len = strlen(implode($outputText));
+        return ($len == 0);
     }
     /**
      * Gets the active branch

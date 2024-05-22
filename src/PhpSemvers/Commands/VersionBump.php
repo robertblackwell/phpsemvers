@@ -83,6 +83,7 @@ EOD;
             $output->writeln("branch: {$branch} tag: {$semvers} hash: {$hash} -> bumped semvers: [{$bumpedSemVers}]");
             SemVersUtils::updateVersionFile($context->version_file_path);
             GitUtils::gitCommit();
+            GitUtils::gitPush("origin", $branch);
             SemVersUtils::createTagFromSemVers($bumpedSemVers);
             SemVersUtils::pushSemversTag("origin", $bumpedSemVers);
             $versionFile = $context->version_file_path;
