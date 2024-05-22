@@ -1,3 +1,3 @@
 <?php
- 	 $cfg = 'v0.2.8-master(7aef0617ccaedc0f20ff1969cea27e0e6f1a0769)';
+ 	 $cfg = 'v0.2.9-master(b8e2267b558e4151bbec85d287aaffb67510d8f3)';
 ?>
