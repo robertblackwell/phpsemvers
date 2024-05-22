@@ -81,7 +81,7 @@ EOD;
             $output->writeln("<fg=yellow>DRYRUN</> branch: {$branch} tag: {$semvers} hash: {$hash} -> bumped semvers: [{$bumpedSemVers}]");
         } else {
             $output->writeln("branch: {$branch} tag: {$semvers} hash: {$hash} -> bumped semvers: [{$bumpedSemVers}]");
-            SemVersUtils::updateVersionFile($context->version_file_path);
+            SemVersUtils::updateVersionFile($context->version_file_path, $bumpedSemVers);
             GitUtils::gitCommit();
             GitUtils::gitPush("origin", $branch);
             SemVersUtils::createTagFromSemVers($bumpedSemVers);
