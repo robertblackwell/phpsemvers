@@ -5,23 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e292519f-3a77-4c70-b920-730a8385011f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/phpsemvers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpsemvers.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Commands/VersionBump.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhpSemvers/Commands/VersionBump.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Commands/VersionInit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhpSemvers/Commands/VersionInit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Commands/VersionSave.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhpSemvers/Commands/VersionSave.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools/Context.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhpSemvers/Tools/Context.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools/Deployer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhpSemvers/Tools/Deployer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools/GitUtils.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhpSemvers/Tools/GitUtils.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools/Path.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhpSemvers/Tools/Path.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools/Rsync.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhpSemvers/Tools/Rsync.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools/SemVers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhpSemvers/Tools/SemVers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools/SemVersBumpEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhpSemvers/Tools/SemVersBumpEnum.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools/SemVersUtils.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhpSemvers/Tools/SemVersUtils.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools/main_version.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhpSemvers/Tools/main_version.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PhpSemvers/Commands/VersionBump.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhpSemvers/Commands/VersionBump.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PhpSemvers/Tools/GitUtils.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhpSemvers/Tools/GitUtils.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Version.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Version.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +73,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716367614649</updated>
-      <workItem from="1716367617643" duration="1930000" />
+      <workItem from="1716367617643" duration="2911000" />
     </task>
     <servers />
   </component>

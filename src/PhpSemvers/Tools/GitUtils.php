@@ -19,7 +19,15 @@ class GitUtils {
         $x = exec("git status --porcelain", $outputText, $retVal);
         $len = strlen(implode($outputText));
         return ($len == 0);
-    
+    }
+    public static function gitCommit(string $msg = "Phpsemvers")
+    {
+        $outputText  = [];
+        $retVal = 0;
+        $x = exec("git commit -a -m\"{$msg}\"", $outputText, $retVal);
+        $len = strlen(implode($outputText));
+        return ($len == 0);
+
     }
     /**
      * Gets the active branch

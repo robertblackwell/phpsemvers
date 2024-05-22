@@ -63,7 +63,7 @@ EOD;
         $cwd = getcwd();
         $clean_test = $input->getOption("ignore-clean");
         $dryrun = $input->getOption("dryrun");
-        $save = $input->getOption("save");
+        $save = true; //$input->getOption("save");
         if(! $clean_test) {
             Checks::checkGitRepoIsClean();
         }
@@ -81,13 +81,13 @@ EOD;
             $output->writeln("<fg=yellow>DRYRUN</> branch: {$branch} tag: {$semvers} hash: {$hash} -> bumped semvers: [{$bumpedSemVers}]");
         } else {
             $output->writeln("branch: {$branch} tag: {$semvers} hash: {$hash} -> bumped semvers: [{$bumpedSemVers}]");
+            SemVersUtils::updateVersionFile($context->version_file_path);
+            GitUtils::gitCommit();
             SemVersUtils::createTagFromSemVers($bumpedSemVers);
             SemVersUtils::pushSemversTag("origin", $bumpedSemVers);
-            if($save) {
-                $versionFile = $context->version_file_path;
-                SemVersUtils::updateVersionFile($context->version_file_path);
-                $output->writeln("write {file_get_contents($versionFile)} to {$versionFile}");
-            }
+            $versionFile = $context->version_file_path;
+            SemVersUtils::updateVersionFile($context->version_file_path);
+            $output->writeln("write {file_get_contents($versionFile)} to {$versionFile}");
         }
 		return 0;
 	}
