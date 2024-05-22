@@ -1,9 +1,9 @@
 {
 	"name":"robertblackwell/phpsemvers",
 	"description": "bumping semantic version numbers for php projects",
-	"keywords": ["semvers"],
+	"keywords": ["bin/phpsemvers"],
 	"type": "library",
-	"bin" : ["bin/php_semvers"],
+	"bin" : ["phpsemvers"],
 	"homepage": "https://github.com/robertblackwell/phpsemvers",
 	"license": "MIT",
 	"authors": [
