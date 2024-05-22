@@ -1,5 +1,5 @@
 <?php
-namespace Tools;
+namespace PhpSemvers\Tools;
 enum SemVersBumpEnum: string {
     case MAJOR = "major";
     case MINOR = "minor";

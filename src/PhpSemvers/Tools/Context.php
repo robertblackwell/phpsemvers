@@ -1,11 +1,11 @@
 <?php
-namespace Tools;
-use \Tools\Path;
+namespace PhpSemvers\Tools;
+use PhpSemvers\Tools\Path;
 
 class Context
 {
     public string $version_file_path;
-    public static string $config_file_relpath = ".phpsemvers.json";
+    public static string $config_file_relpath = ".PhpSemvers.json";
 
     private function __construct()
     {

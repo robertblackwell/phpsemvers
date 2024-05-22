@@ -1,5 +1,5 @@
 <?php 
-namespace Tools;
+namespace PhpSemvers\Tools;
 Class SemVersUtils
 {
     /**

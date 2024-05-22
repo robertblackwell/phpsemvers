@@ -1,5 +1,5 @@
 <?php
-namespace Tools;
+namespace PhpSemvers\Tools;
 
 use Symfony\Component\Finder\Finder;
 class Path

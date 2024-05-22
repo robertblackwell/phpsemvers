@@ -1,5 +1,5 @@
 <?php
-namespace Commands;
+namespace PhpSemvers\Commands;
 
 
 use Symfony\Component\Console\Command\Command;
@@ -7,12 +7,12 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use Tools\Context;
-use Tools\Checks;
-use Tools\SemVersUtils;
-use Tools\SemVersBumpEnum;
-use Tools\GitUtils;
-use Tools\Path;
+use PhpSemvers\Tools\Context;
+use PhpSemvers\Tools\Checks;
+use PhpSemvers\Tools\SemVersUtils;
+use PhpSemvers\Tools\SemVersBumpEnum;
+use PhpSemvers\Tools\GitUtils;
+use PhpSemvers\Tools\Path;
 
 class VersionBump extends Command
 {

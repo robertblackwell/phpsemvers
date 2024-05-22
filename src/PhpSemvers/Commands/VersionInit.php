@@ -1,5 +1,5 @@
 <?php
-namespace Commands;
+namespace PhpSemvers\Commands;
 
 
 use Symfony\Component\Console\Command\Command;
@@ -8,13 +8,13 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Tools\Deployer;
-use Tools\SemVers;
-use Tools\ServerFactory;
-use Tools\Context;
-use Tools\SemVersUtils;
-use Tools\SemVersBumpEnum;
-use Tools\GitUtils;
-use Tools\Path;
+use PhpSemvers\Tools\SemVers;
+use PhpSemvers\Tools\ServerFactory;
+use PhpSemvers\Tools\Context;
+use PhpSemvers\Tools\SemVersUtils;
+use PhpSemvers\Tools\SemVersBumpEnum;
+use PhpSemvers\Tools\GitUtils;
+use PhpSemvers\Tools\Path;
 
 class VersionInit extends Command
 {

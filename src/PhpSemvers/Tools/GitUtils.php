@@ -1,5 +1,5 @@
 <?php 
-namespace Tools;
+namespace PhpSemvers\Tools;
 use Exception;
 class GitUtils {
     private string $repo_root_dirpath;

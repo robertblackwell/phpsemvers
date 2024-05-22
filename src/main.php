@@ -44,7 +44,7 @@ function get_version()
 use Symfony\Component\Console\Application;
 
 $application = new Application("php_semvers", get_version());
-$application->add(new Commands\VersionBump());
-$application->add(new Commands\VersionInit());
+$application->add(new PhpSemvers\Commands\VersionBump());
+$application->add(new PhpSemvers\Commands\VersionInit());
 
 $application->run();
