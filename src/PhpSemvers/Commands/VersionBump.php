@@ -109,7 +109,7 @@ EOD;
         $cwd = getcwd();
         $extended_semvers = $input->getOption("extended_semvers") || $context->extended_semvers;
         Checks::checkGitRepoIsClean();
-        $bumpTypeString = $input->getArgument("bump");
+        $bumpTypeString = $input->getArgument("part");
         $bumpType = SemVersBumpEnum::tryFrom($bumpTypeString);
         $git = new GitUtils($cwd);
         $branch = $git->getActiveBranch();
