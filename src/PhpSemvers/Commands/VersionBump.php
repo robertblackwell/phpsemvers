@@ -41,10 +41,16 @@ The command reads a config file names <info>.phpsemvers.json</info>
 from the current directory. This file is json and has the form:
 <info>
 {
-    "version_file_relpath": .....
-    "extended_semvers" : true|false
+    "version_file_relpath": ......,
+    "extended_semvers" : true|false,
+    "git_remote": ......
 }
 </info>
+If keys are absent:
+- <info>version_file_relpath</info> defaults to <info>src/Version.php</info>
+- <info>extended_semvers</info> defaults to <info>false</info>
+- <info>git_remote</info> defaults to <info>origin</info>
+
 
 If the  <info>extended_semvers</info> flag is not set on the command line
 or in the config file the following steps are performed:
