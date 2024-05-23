@@ -107,7 +107,7 @@ EOD;
 	{
         $context = Context::create_from_config_file();
         $cwd = getcwd();
-        $extended_semvers = $input->getOption("extended-semvers") || $context->extended_semvers;
+        $extended_semvers = $input->getOption("extended_semvers") || $context->extended_semvers;
         Checks::checkGitRepoIsClean();
         $bumpTypeString = $input->getArgument("bump");
         $bumpType = SemVersBumpEnum::tryFrom($bumpTypeString);
