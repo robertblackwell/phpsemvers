@@ -5,7 +5,8 @@ use PhpSemvers\Tools\Path;
 class Context
 {
     public string $version_file_path;
-    public static string $config_file_relpath = ".PhpSemvers.json";
+    public bool $extended_semvers;
+    public static string $config_file_relpath = ".phpsemvers.json";
 
     private function __construct()
     {
@@ -37,7 +38,12 @@ class Context
             throw new \Exception("{$configFilePath} is not a valid json file decode failed");
         }
         self::check_config_keys($file_config);
+        $extended_semvers = false;
+        if(property_exists($file_config, "extended_semvers")) {
+            $extended_semvers = $file_config->extended_semvers;
+        }
         $context = new Context();
+        $context->extended_semvers = $extended_semvers;
         $context->current_version = $file_config->version;
         $context->version_file_path = Path::join($cwd, $file_config->version_file_relpath);
         return $context;

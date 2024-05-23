@@ -37,7 +37,17 @@ EOD;
 The <info>v:bump</info> command must be run from the root of a git repo
 and the repo must be clean (no uncommitted changes). 
 
-If the  <info>extended-semvers</info> flag is not set the following steps are performs:
+The command reads a config file names <info>.phpsemvers.json</info>
+from the current directory. This file is json and has the form:
+<info>
+{
+    "version_file_relpath": .....
+    "extended_semvers" : true|false
+}
+</info>
+
+If the  <info>extended_semvers</info> flag is not set on the command line
+or in the config file the following steps are performed:
 
 1. get the most recent <info>git tag</info> as a semantic version number, fails if there are none
 2. increments the semantic version according to the arguments
@@ -48,7 +58,8 @@ If the  <info>extended-semvers</info> flag is not set the following steps are pe
 7. pushes that tag to <info>origin</info> and active branch
 
 
-If the <info>extended-semvers</info> flag is set perform the following steps are performed:
+If the <info>extended_semvers</info> flag is set on the command line 
+or in the config file then perform the following steps are performed:
 
 1. get the most recent <info>git tag</info> as a semantic version number, fails if there are none
 2. increments the semantic version according to the arguments
@@ -70,8 +81,9 @@ EOD;
 				"Bumps, tag and commit the semantic version for a project git repo."
 			)
 			->setDefinition([
-                new InputArgument('bump', InputArgument::REQUIRED, 'The part of the semver to bump major|minor|patch'),
-                new InputOption('extended-semvers', "x", InputOption::VALUE_NONE,
+                new InputArgument('part', InputArgument::REQUIRED,
+                    'The <info>part</info> of the semver to bump <info>major</info>|<info>minor</info>|<info>patch</info>'),
+                new InputOption('extended_semvers', "x", InputOption::VALUE_NONE,
                     'Writes an extended semantic version string to the version file but does not commit that change'),
 //                new InputOption('dryrun', "d", InputOption::VALUE_NONE,'Do not create the new tag and dont push the tag'),
 //                new InputOption('no-save', "n", InputOption::VALUE_NONE,'Do not save the new version to the version file')
@@ -87,10 +99,9 @@ EOD;
      */
 	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
-//        $this->whiteacornConfig = Checks::checkCwdIsWhiteacornRepo();
         $context = Context::create_from_config_file();
         $cwd = getcwd();
-        $extended_semvers = $input->getOption("extended-semvers");
+        $extended_semvers = $input->getOption("extended-semvers") || $context->extended_semvers;
         Checks::checkGitRepoIsClean();
         $bumpTypeString = $input->getArgument("bump");
         $bumpType = SemVersBumpEnum::tryFrom($bumpTypeString);
