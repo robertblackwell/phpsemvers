@@ -52,6 +52,17 @@ Class SemVersUtils
         $phpContent = "<?php\n \t \$cfg = '" . $r . "';\n?>\n";
         file_put_contents($versionFile, $phpContent);
     }
+    public static function updateExtendedVersionFile(string $versionFile, SemVers $new_semver, string $branch, string $hash)
+    {
+        if (!is_file($versionFile)) {
+            throw new \Exception("version file {$versionFile} does not exists");
+        }
+        $r = "{$new_semver}-({$branch}){$hash})";
+        $phpContent = "<?php\n \t \$cfg = '" . $r . "';\n?>\n";
+
+        file_put_contents($versionFile, $phpContent);
+
+    }
     public static function createVersionFileContent()
     {
         $semVers = SemVersUtils::semversFromGitTag();

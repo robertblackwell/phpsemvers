@@ -33,6 +33,37 @@ EOD;
 	protected function configure(): void
 	{
 		parent::configure();
+        $helpText = <<<EOD
+The <info>v:bump</info> command must be run from the root of a git repo
+and the repo must be clean (no uncommitted changes). 
+
+If the  <info>extended-semvers</info> flag is not set the following steps are performs:
+
+1. get the most recent <info>git tag</info> as a semantic version number, fails if there are none
+2. increments the semantic version according to the arguments
+3. writes the update version to the version file
+4. commits the change to the version file
+5. pushes that commit to <info>origin</info> and active branch
+6. creates a tag with the value of the update semantic version number
+7. pushes that tag to <info>origin</info> and active branch
+
+
+If the <info>extended-semvers</info> flag is set perform the following steps are performed:
+
+1. get the most recent <info>git tag</info> as a semantic version number, fails if there are none
+2. increments the semantic version according to the arguments
+3. creates a tag with the value of the update semantic version number
+4. pushes that tag to <info>origin</info> and active branch
+5. get the <info>hash</info> of the latest commit
+6. create an extended version string of the form <info>vn.n.n-(branch)commit_hash</info>
+3. writes this extended version to the version file
+
+Note in this last case the update version file is not committed. This is a special case
+for a project where the repo is deployed with rsync and the version file is deployed
+even though it is not in the repo.
+
+EOD;
+
 		$this
 			->setName('v:bump')
 			->setDescription(
@@ -40,14 +71,12 @@ EOD;
 			)
 			->setDefinition([
                 new InputArgument('bump', InputArgument::REQUIRED, 'The part of the semver to bump major|minor|patch'),
-                new InputOption('ignore-clean', "i", InputOption::VALUE_NONE,'Do not perform the git repo clean test'),
-                new InputOption('dryrun', "d", InputOption::VALUE_NONE,'Do not create the new tag and dont push the tag'),
-                new InputOption('save', "s", InputOption::VALUE_NONE,'Save the new version to the version file')
+                new InputOption('extended-semvers', "x", InputOption::VALUE_NONE,
+                    'Writes an extended semantic version string to the version file but does not commit that change'),
+//                new InputOption('dryrun', "d", InputOption::VALUE_NONE,'Do not create the new tag and dont push the tag'),
+//                new InputOption('no-save', "n", InputOption::VALUE_NONE,'Do not save the new version to the version file')
             ])
-			->setHelp(
-				'The <info>%command.name%</info> '
-				.'Bumps the current semvers. Current semvers is stored as latest git tag'
-			);
+			->setHelp($helpText);
 	}
 
     /**
@@ -61,12 +90,8 @@ EOD;
 //        $this->whiteacornConfig = Checks::checkCwdIsWhiteacornRepo();
         $context = Context::create_from_config_file();
         $cwd = getcwd();
-        $clean_test = $input->getOption("ignore-clean");
-        $dryrun = $input->getOption("dryrun");
-        $save = true; //$input->getOption("save");
-        if(! $clean_test) {
-            Checks::checkGitRepoIsClean();
-        }
+        $extended_semvers = $input->getOption("extended-semvers");
+        Checks::checkGitRepoIsClean();
         $bumpTypeString = $input->getArgument("bump");
         $bumpType = SemVersBumpEnum::tryFrom($bumpTypeString);
         $git = new GitUtils($cwd);
@@ -75,11 +100,16 @@ EOD;
         if(is_null($semvers)) {
             throw new \Exception("could not make semvers from tag - probably <info>php_semvers</info> not initialized for this repo");
         }
-        $bumpedSemVers = $semvers->bump($bumpType);
-        $hash = $git->getCommitHashForBranch($branch);
-        if($dryrun) {
-            $output->writeln("<fg=yellow>DRYRUN</> branch: {$branch} tag: {$semvers} hash: {$hash} -> bumped semvers: [{$bumpedSemVers}]");
+        if($extended_semvers) {
+            $bumpedSemVers = $semvers->bump($bumpType);
+            $hash = $git->getCommitHashForBranch($branch);
+            SemVersUtils::createTagFromSemVers($bumpedSemVers);
+            SemVersUtils::pushSemversTag("origin", $bumpedSemVers);
+            $extended_semvers = "{$bumpedSemVers}-({$branch}{$hash})";
+            SemVersUtils::updateExtendedVersionFile($context->version_file_path, $bumpedSemVers, $branch, $hash);
         } else {
+            $bumpedSemVers = $semvers->bump($bumpType);
+            $hash = $git->getCommitHashForBranch($branch);
             $output->writeln("branch: {$branch} tag: {$semvers} hash: {$hash} -> bumped semvers: [{$bumpedSemVers}]");
             SemVersUtils::updateVersionFile($context->version_file_path, $bumpedSemVers);
             GitUtils::gitCommit();
@@ -88,6 +118,6 @@ EOD;
             SemVersUtils::pushSemversTag("origin", $bumpedSemVers);
             $versionFile = $context->version_file_path;
         }
-		return 0;
+        return 0;
 	}
 }
