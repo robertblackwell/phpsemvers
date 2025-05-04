@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e292519f-3a77-4c70-b920-730a8385011f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PhpSemvers/Commands/VersionBump.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhpSemvers/Commands/VersionBump.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1716367614649</updated>
       <workItem from="1716367617643" duration="4142000" />
-      <workItem from="1716455990056" duration="5742000" />
+      <workItem from="1716455990056" duration="6190000" />
     </task>
     <servers />
   </component>

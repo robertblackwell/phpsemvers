@@ -66,9 +66,9 @@ EOD;
         $save_relpath = (!is_null($input->getArgument("save_file")) ? $input->getArgument("save_file"): "src/Version.php");
         $save_file_path = Path::join($cwd, $save_relpath);
         if(is_file($save_file_path)) {
-            $output->writeln("<fg=blue>Will overwrite php version file <info>${save_relpath} </info><fg=blue>if you continue" );
+            $output->writeln("<fg=blue>Will overwrite php version file <info>{$save_relpath} </info><fg=blue>if you continue" );
         } else {
-            $output->writeln("<fg=blue>Will create php version file <info>${save_relpath}</info> <fg=blue>if you continue" );
+            $output->writeln("<fg=blue>Will create php version file <info>{$save_relpath}</info> <fg=blue>if you continue" );
         }
         $git = new GitUtils($cwd);
         if(!is_dir(Path::join($cwd, ".git"))) {
