@@ -6,6 +6,7 @@ class Context
 {
     public string $version_file_path;
     public bool $extended_semvers;
+    public string $current_version;
     public static string $config_file_relpath = ".phpsemvers.json";
 
     private function __construct()
